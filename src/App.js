@@ -11,6 +11,7 @@ import { Header } from './Components/Header/Header'
 
 //Pages
 import { Home } from './Pages/Home/Home'
+import { Checkout } from './Pages/Checkout/Checkout'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
 
         <Switch >
           <Route path='/checkout' >
-            <h1>Checkout goes here</h1>
+            <Checkout />
           </Route>
           <Route path='/'>
             <Home />
