@@ -1,12 +1,13 @@
 import './App.css'
 
 import { Header } from './Components/Header/Header'
+import { Home } from './Pages/Home/Home'
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <h1>SHOP 2021</h1>
+      <Home />
     </div>
   )
 }
