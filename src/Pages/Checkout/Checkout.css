@@ -11,6 +11,10 @@
   flex: 1;
 }
 
+.checkout__user {
+  padding: 10px;
+}
+
 .checkout__title {
   margin-right: 10px;
   padding: 10px;
