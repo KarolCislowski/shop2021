@@ -11,8 +11,9 @@ export const Checkout = () => {
         <h2 className='checkout__title'>
           Your Shopping Basket
         </h2>
-        {basket && basket.map(e => (
+        {basket && basket.map((e, index) => (
           <BasketItem
+            key={`${e.id} + ${index}`}
             id={e.id}
             title={e.title}
             image={e.image}

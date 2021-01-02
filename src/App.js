@@ -20,13 +20,14 @@ import { useStateValue } from './State/StateProvider'
 
 function App() {
 
-  const [{ user }, dispatch] = useStateValue()
+  const [{ }, dispatch] = useStateValue()
+
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
       if (authUser) {
         dispatch({
           type: 'SET_USER',
-          user: auth.user
+          user: authUser
         })
       } else {
         dispatch({

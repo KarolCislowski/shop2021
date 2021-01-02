@@ -17,8 +17,6 @@ export const Login = () => {
         }
       })
       .catch(error => alert(error.message))
-    setEmail('')
-    setPassword('')
   }
 
   const handleRegister = (e) => {
@@ -30,8 +28,6 @@ export const Login = () => {
         }
       })
       .catch(error => alert(error.message))
-    setEmail('')
-    setPassword('')
   }
 
   return (
