@@ -22,6 +22,10 @@
   margin-top: 5px;
 }
 
+.productCard__rating {
+  display: flex;
+}
+
 .productCard > img {
   max-height: 200px;
   width: 100%;

@@ -1,0 +1,33 @@
+.basketItem {
+  display: flex;
+  margin: 20px 0;
+}
+
+.basketItem__image {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+}
+
+.basketItem__info {
+  padding-left: 20px;
+}
+
+.basketItem__rating {
+  display: flex;
+}
+
+.basketItem__info > button {
+  background-color: #b90000;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #5d0b1a #6b0909 #940a0a;
+  color: aliceblue;
+  padding: 5px 6px;
+  border-radius: 3px;
+}
+
+.basketItem__title {
+  font-size: 17px;
+  font-weight: 700;
+}

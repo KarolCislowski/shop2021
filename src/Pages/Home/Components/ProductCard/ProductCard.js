@@ -1,18 +1,28 @@
 import './ProductCard.css'
+import { useStateValue } from '../../../../State/StateProvider'
 
 export const ProductCard = ({
+  id,
   title,
   image,
   price,
   rating
 }) => {
-  const ratingString = () => {
-    let resultString = ''
-    for (let index = 0; index < rating; index++) {
-      resultString += `⭐`
-    }
-    return resultString
+  const [{ basket }, dispatch] = useStateValue()
+
+  const handleAddToBasket = () => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id,
+        title,
+        image,
+        price,
+        rating
+      }
+    })
   }
+
   return (
     <div className='productCard'>
       <div className='productCard__info'>
@@ -22,12 +32,16 @@ export const ProductCard = ({
           <strong>{price}</strong>
         </p>
         <div className='productCard__rating'>
-          <p>{ratingString()}</p>
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <p>⭐</p>
+            ))}
         </div>
       </div>
       <img src={image} alt='product cover' />
 
-      <button>Add to basket</button>
+      <button onClick={handleAddToBasket}>Add to basket</button>
     </div>
   )
 }
