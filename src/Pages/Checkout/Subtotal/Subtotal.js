@@ -1,6 +1,5 @@
 import './Subtotal.css'
 import CurrencyFormat from 'react-currency-format'
-import { ShoppingBasket } from '@material-ui/icons'
 
 export const Subtotal = () => {
   return (
