@@ -14,16 +14,18 @@ export const Checkout = () => {
         <h2 className='checkout__title'>
           Your Shopping Basket
         </h2>
-        {basket?.map((e, index) => (
-          <BasketItem
-            key={`${e.id} + ${index}`}
-            id={e.id}
-            title={e.title}
-            image={e.image}
-            price={e.price}
-            rating={e.rating}
-          />))
-        }
+        <div className='checkout__basket'>
+          {basket?.map((e, index) => (
+            <BasketItem
+              key={`${e.id} + ${index}`}
+              id={e.id}
+              title={e.title}
+              image={e.image}
+              price={e.price}
+              rating={e.rating}
+            />))
+          }
+        </div>
       </div>
       <div className='checkout__right'>
         <Subtotal />

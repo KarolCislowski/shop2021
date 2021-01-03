@@ -25,6 +25,7 @@
   color: aliceblue;
   padding: 5px 6px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .basketItem__title {
