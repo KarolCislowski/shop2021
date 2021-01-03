@@ -1,4 +1,4 @@
-import { useStateValue } from '../../../State/StateProvider'
+import { useStateValue } from '../../State/StateProvider'
 import './BasketItem.css'
 
 export const BasketItem = ({

@@ -16,6 +16,7 @@ import { Home } from './Pages/Home/Home'
 import { Checkout } from './Pages/Checkout/Checkout'
 import { Login } from './Pages/Login/Login'
 import { useStateValue } from './State/StateProvider'
+import { Payment } from './Pages/Payment/Payment'
 
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
           </Route>
           <Route path='/login' >
             <Login />
+          </Route>
+          <Route path='/payment'>
+            <Header />
+            <Payment />
           </Route>
           <Route path='/'>
             <Header />

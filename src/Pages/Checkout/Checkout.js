@@ -1,5 +1,5 @@
 import { useStateValue } from '../../State/StateProvider'
-import { BasketItem } from './BasketItem/BasketItem'
+import { BasketItem } from '../../Components/BasketItem/BasketItem'
 import './Checkout.css'
 import { Subtotal } from './Subtotal/Subtotal'
 
@@ -14,7 +14,7 @@ export const Checkout = () => {
         <h2 className='checkout__title'>
           Your Shopping Basket
         </h2>
-        {basket && basket.map((e, index) => (
+        {basket?.map((e, index) => (
           <BasketItem
             key={`${e.id} + ${index}`}
             id={e.id}
