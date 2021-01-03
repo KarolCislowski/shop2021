@@ -5,6 +5,7 @@
   margin: 0 auto;
   border-radius: 0 0 5px 5px;
   color: gainsboro;
+  max-width: 1500px;
 }
 
 .checkout__left {
