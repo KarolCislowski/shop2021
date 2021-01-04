@@ -31,7 +31,7 @@ export const BasketItem = ({
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>⭐</p>
+              <p key={i}>⭐</p>
             ))}
         </div>
         <button onClick={handleRemoveFromBasket}>Remove from basket</button>

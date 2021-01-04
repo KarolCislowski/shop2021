@@ -23,6 +23,16 @@
 }
 
 .payment__items,
-.payment__address {
+.payment__address,
+.payment__details {
   flex: 0.8;
+  margin-left: 5px;
+}
+
+.payment__details {
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #b90000;
+  color: #272626;
 }
