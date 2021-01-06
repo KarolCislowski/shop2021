@@ -6,7 +6,8 @@ export const BasketItem = ({
   title,
   image,
   price,
-  rating
+  rating,
+  hideButton
 }) => {
 
   const [{ basket }, dispatch] = useStateValue()
@@ -34,7 +35,9 @@ export const BasketItem = ({
               <p key={i}>⭐</p>
             ))}
         </div>
-        <button onClick={handleRemoveFromBasket}>Remove from basket</button>
+        {!hideButton &&
+          <button onClick={handleRemoveFromBasket}>Remove from basket</button>
+        }
       </div>
     </div>
   )

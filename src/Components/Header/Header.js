@@ -38,10 +38,12 @@ export const Header = () => {
             <span className='header__option__lineTwo'>Sign {user ? 'out' : 'in'}</span>
           </div>
         </Link>
-        <div className='header__option'>
-          <span className='header__option__lineOne'>Returns</span>
-          <span className='header__option__lineTwo'>{`&`} Orders</span>
-        </div>
+        <Link to='/orders' style={{ textDecoration: 'none' }}>
+          <div className='header__option'>
+            <span className='header__option__lineOne'>Returns</span>
+            <span className='header__option__lineTwo'>{`&`} Orders</span>
+          </div>
+        </Link>
         <div className='header__option'>
           <span className='header__option__lineOne'>Your</span>
           <span className='header__option__lineTwo'>Prime</span>

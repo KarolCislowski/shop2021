@@ -21,6 +21,7 @@ import { Checkout } from './Pages/Checkout/Checkout'
 import { Login } from './Pages/Login/Login'
 import { useStateValue } from './State/StateProvider'
 import { Payment } from './Pages/Payment/Payment'
+import { Orders } from './Pages/Orders/Orders'
 
 const promise = loadStripe('pk_test_51I5vbRJeBHPKbMlwLnIPJvXh2vhxLW0hAuwxuYyJuaXc56dSBqMcTjOOgAZMuqHc0bRAbwlbSHygLVNimxWHfvhY00JpV0MiuE')
 
@@ -60,6 +61,10 @@ function App() {
             <Elements stripe={promise}>
               <Payment />
             </Elements>
+          </Route>
+          <Route path='/orders'>
+            <Header />
+            <Orders />
           </Route>
           <Route path='/'>
             <Header />

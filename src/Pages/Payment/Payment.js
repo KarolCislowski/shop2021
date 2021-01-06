@@ -10,6 +10,7 @@ import { getBasketTotal } from '../../State/reducer'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from '../../axios'
+import { db } from '../../firebase'
 
 export const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue()
@@ -50,9 +51,24 @@ export const Payment = () => {
       }
     })
       .then(({ paymentIntent }) => {
+
+        db.collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created
+          })
+
         setSucceeded(true)
         setError(null)
         setProcessing(false)
+
+        dispatch({
+          type: 'EMPTY_BASKET'
+        })
 
         history.replace('/orders')
       })
@@ -110,6 +126,7 @@ export const Payment = () => {
             <h3>Payment Method</h3>
           </div>
           <div className='payment__details'>
+
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
 
@@ -131,6 +148,16 @@ export const Payment = () => {
               </div>
               {error && <div>{error}</div>}
             </form>
+            <div className='payment__test' >
+              <p>* To test this functionality use data:
+                  <ul>
+                  <li>Card number: 4242 4242 4242 4242</li>
+                  <li>Date: 04/24</li>
+                  <li>CVV: 242</li>
+                  <li>Zip: 42424</li>
+                </ul>
+              </p>
+            </div>
           </div>
         </div>
       </div>
