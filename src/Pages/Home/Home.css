@@ -8,10 +8,15 @@
 .home__image {
   width: 100%;
   z-index: -1;
-  max-height: 60vh;
+  max-height: 70vh;
   margin-bottom: -200px;
   object-fit: cover;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .home__row {

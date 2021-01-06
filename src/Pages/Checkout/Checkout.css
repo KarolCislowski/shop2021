@@ -4,8 +4,8 @@
   height: max-content;
   margin: 0 auto;
   border-radius: 0 0 5px 5px;
-  color: gainsboro;
   max-width: 1500px;
+  background-color: white;
 }
 
 .checkout__left {
