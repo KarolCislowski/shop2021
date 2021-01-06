@@ -9,7 +9,7 @@ import CurrencyFormat from 'react-currency-format'
 import { getBasketTotal } from '../../State/reducer'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../axios'
 
 export const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue()
@@ -28,9 +28,11 @@ export const Payment = () => {
 
   useEffect(() => {
     const getClientSecret = async () => {
+      const basketValue = getBasketTotal(basket) * 100
+      console.log(basketValue)
       const response = await axios({
         method: 'post',
-        url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+        url: `/payments/create?total=${basketValue}`
       })
       setClientSecret(response.data.clientSecret)
     }
