@@ -88,7 +88,7 @@ export const Payment = () => {
             to='/checkout'
             style={{
               textDecoration: 'none',
-              color: 'aliceblue'
+              color: 'black'
             }}
           >{basket?.length} {basket?.length === 1 ? 'item' : 'items'}</Link>)
         </h1>
@@ -149,7 +149,7 @@ export const Payment = () => {
               {error && <div>{error}</div>}
             </form>
             <div className='payment__test' >
-              <p>* To test this functionality use data:
+              <p>* To test this functionality use this data:
                   <ul>
                   <li>Card number: 4242 4242 4242 4242</li>
                   <li>Date: 04/24</li>

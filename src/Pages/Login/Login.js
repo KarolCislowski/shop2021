@@ -33,7 +33,7 @@ export const Login = () => {
   return (
     <div className='login'>
       <Link to='/' style={{ textDecoration: 'none' }}>
-        <h1>Red Dwarf</h1>
+        <h1>Trip Store</h1>
       </Link>
       <div className='login__container'>
         <h2>Sign-in</h2>

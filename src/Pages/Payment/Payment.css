@@ -1,21 +1,22 @@
 .payment {
-  color: gainsboro;
   max-width: 1500px;
   margin: 0 auto;
+  background-color: white;
 }
 
 .payment__container > h1 {
   text-align: center;
   padding: 10px;
   font-weight: 400;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
+  background-color: #eaeded;
 }
 
 .payment__section {
   display: flex;
   padding: 20px;
   margin: 0 20px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
 }
 
 .payment__title {
@@ -29,10 +30,10 @@
 }
 
 .payment__details {
-  background-color: aliceblue;
+  background-color: #f3f3f3;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #b90000;
+  border: 1px solid #0b6623;
   color: #272626;
 }
 
@@ -46,10 +47,10 @@
 }
 
 .payment__details > form > div > button {
-  background-color: #b90000;
+  background-color: #0b6623;
   border: 1px solid;
   margin-top: 10px;
-  border-color: #5d0b1a #6b0909 #940a0a;
+  border-color: #0f752a #07521b #045018;
   color: aliceblue;
   padding: 5px 6px;
   border-radius: 3px;
@@ -63,6 +64,7 @@
   margin: 10px;
   padding: 10px;
   font-weight: 600;
+  background-color: #ff8e8e;
 }
 
 .payment__test > p > ul {

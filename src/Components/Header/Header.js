@@ -17,7 +17,7 @@ export const Header = () => {
   return (
     <header className='header'>
       <Link to='/' style={{ textDecoration: 'none' }}>
-        <h5 className='header__logo'>Red Dwarf</h5>
+        <h5 className='header__logo'>Trip Store</h5>
       </Link>
       <div className='header__search'>
         <input

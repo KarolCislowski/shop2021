@@ -6,7 +6,7 @@
   width: 300px;
   height: 100px;
   padding: 20px;
-  background-color: #1b1b1b;
+  background-color: #f3f3f3;
   border: 1px solid #b90000;
   border-radius: 3px;
 }
@@ -21,10 +21,10 @@
 }
 
 .subtotal > button {
-  background-color: #b90000;
+  background-color: #0b6623;
   border: 1px solid;
   margin-top: 10px;
-  border-color: #5d0b1a #6b0909 #940a0a;
+  border-color: #0f752a #07521b #045018;
   color: aliceblue;
   padding: 5px 6px;
   border-radius: 3px;

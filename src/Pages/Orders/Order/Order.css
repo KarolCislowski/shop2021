@@ -2,8 +2,9 @@
   padding: 40px;
   margin: 20px 0;
   position: relative;
-  border: #b90000 1px solid;
+  border: lightgray 1px solid;
   border-radius: 5px;
+  background-color: white;
 }
 
 .order__id {
