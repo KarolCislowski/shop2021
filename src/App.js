@@ -67,6 +67,10 @@ function App() {
             <Header />
             <Orders />
           </PrivateRoute>
+          <Route path='/products/:catName'>
+            <Header />
+            <Home />
+          </Route>
           <Route path='/'>
             <Header />
             <Home />

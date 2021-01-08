@@ -1,6 +1,6 @@
 import './Header.css'
 import { ShoppingBasket, Search } from '@material-ui/icons'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useStateValue } from '../../State/StateProvider'
 import { auth, db } from '../../firebase'
 import { useEffect, useState } from 'react'
@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react'
 export const Header = () => {
 
   const [categories, setCategories] = useState([])
+
+  const { catName } = useParams()
 
   const [{ basket, user }, dispatch] = useStateValue()
 
@@ -67,13 +69,17 @@ export const Header = () => {
         </nav>
       </div>
       <div className='header__level__two'>
-        <div className='header__navBtn header__navBtn--active'>
-          Home
+        <Link to='/'>
+          <div className={!catName ? 'header__navBtn header__navBtn--active' : 'header__navBtn'}>
+            Home
         </div>
+        </Link>
         {categories?.map(e => (
-          <div className='header__navBtn'>
-            {e.data.name}
-          </div>
+          <Link to={`/products/${e.data.name}`} >
+            <div className={catName?.toLowerCase() === e.data.name ? 'header__navBtn header__navBtn--active' : 'header__navBtn'}>
+              {e.data.name}
+            </div>
+          </Link>
         ))}
       </div>
     </header>
