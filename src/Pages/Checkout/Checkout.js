@@ -9,7 +9,7 @@ export const Checkout = () => {
     <div className='checkout'>
       <div className='checkout__left'>
         <h3 className='checkout__user'>
-          Hello, {user?.email}!
+          Hello, {user ? `${user.email}!` : 'Guest!'}
         </h3>
         <h2 className='checkout__title'>
           Your Shopping Basket

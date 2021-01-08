@@ -1,4 +1,4 @@
-import { ProductCard } from './Components/ProductCard/ProductCard'
+import { ProductCard } from './ProductCard/ProductCard'
 import './Home.css'
 
 export const Home = () => {
@@ -27,8 +27,7 @@ export const Home = () => {
               price={666.69}
               rating={5}
             />
-          </div>
-          <div className='home__row'>
+
             <ProductCard
               id='3'
               title='Photo of Space'
@@ -50,8 +49,6 @@ export const Home = () => {
               price={666.69}
               rating={5}
             />
-          </div>
-          <div className='home__row'>
             <ProductCard
               id='6'
               title='Photo of Milky Way'
