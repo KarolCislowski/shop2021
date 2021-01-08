@@ -14,6 +14,7 @@ import './App.css'
 
 //Components
 import { Header } from './Components/Header/Header'
+import { PrivateRoute } from './Components/PrivateRoute/PrivateRoute'
 
 //Pages
 import { Home } from './Pages/Home/Home'
@@ -56,16 +57,16 @@ function App() {
           <Route path='/login' >
             <Login />
           </Route>
-          <Route path='/payment'>
+          <PrivateRoute path='/payment'>
             <Header />
             <Elements stripe={promise}>
               <Payment />
             </Elements>
-          </Route>
-          <Route path='/orders'>
+          </PrivateRoute>
+          <PrivateRoute path='/orders'>
             <Header />
             <Orders />
-          </Route>
+          </PrivateRoute>
           <Route path='/'>
             <Header />
             <Home />
