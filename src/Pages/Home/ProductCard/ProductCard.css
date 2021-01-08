@@ -10,7 +10,8 @@
   z-index: 1;
   border-radius: 5px;
   box-shadow: 3px 3px 10px -3px rgba(0, 0, 0, 0.97);
-  flex: 1 23%;
+  flex: 1 22%;
+  max-width: 22%;
 }
 .productCard:hover {
   transform: scale(1.005);
@@ -19,12 +20,14 @@
 
 @media (max-width: 920px) {
   .productCard {
-    flex: 1 47%;
+    flex: 1 44%;
+    max-width: 44%;
   }
 }
 @media (max-width: 600px) {
   .productCard {
-    flex: 1;
+    flex: 1 100%;
+    max-width: 100%;
   }
 }
 
