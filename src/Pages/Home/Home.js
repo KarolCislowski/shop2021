@@ -1,24 +1,16 @@
 import { ProductCard } from './ProductCard/ProductCard'
 import './Home.css'
-import { CategoryCard } from './CategoryCard/CategoryCard'
+import { CategoryCard } from './Categories/CategoryCard/CategoryCard'
 import { useEffect, useState } from 'react'
 import { db } from '../../firebase'
 import { useParams } from 'react-router-dom'
+import { Categories } from './Categories/Categories'
 
 export const Home = () => {
-  const [categories, setCategories] = useState([])
 
   const [products, setProducts] = useState([])
 
   const { catName } = useParams()
-
-  useEffect(() => {
-    db.collection('categories').onSnapshot((snapshot) => {
-      setCategories(snapshot.docs.map(doc => (
-        { id: doc.id, data: doc.data() }
-      )))
-    })
-  }, [])
 
   useEffect(() => {
     if (catName) {
@@ -45,13 +37,7 @@ export const Home = () => {
       />
       <div className='home'>
         <main className='home__container'>
-
-          <div className='home__row'>
-            {categories?.map(e => <CategoryCard
-              category={e.data.name}
-              image={e.data.image} />)}
-          </div>
-
+          <Categories />
           <div className='home__row'>
             {products?.map(e => <ProductCard
               id={e.id}
