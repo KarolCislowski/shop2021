@@ -1,5 +1,5 @@
 import './ProductCard.css'
-import { useStateValue } from '../../../State/StateProvider'
+import { useStateValue } from '../../../../State/StateProvider'
 
 export const ProductCard = ({
   id,
