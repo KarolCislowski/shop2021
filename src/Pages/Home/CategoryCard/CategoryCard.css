@@ -1,0 +1,50 @@
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 20px;
+  max-height: 400px;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px -3px rgba(0, 0, 0, 0.97);
+  flex: 1 22%;
+  max-width: 22%;
+}
+.categoryCard:hover {
+  transform: scale(1.005);
+  box-shadow: 3px 3px 13px -3px rgba(0, 0, 0, 0.97);
+}
+
+@media (max-width: 920px) {
+  .categoryCard {
+    flex: 1 44%;
+    max-width: 44%;
+  }
+}
+@media (max-width: 600px) {
+  .categoryCard {
+    flex: 1 100%;
+    max-width: 100%;
+  }
+}
+
+.categoryCard > a > img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.categoryCard > a {
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+}
+
+.categoryCard > a > h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+}

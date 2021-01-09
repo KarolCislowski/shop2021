@@ -1,7 +1,41 @@
 import { ProductCard } from './ProductCard/ProductCard'
 import './Home.css'
+import { CategoryCard } from './CategoryCard/CategoryCard'
+import { useEffect, useState } from 'react'
+import { db } from '../../firebase'
+import { useParams } from 'react-router-dom'
 
 export const Home = () => {
+  const [categories, setCategories] = useState([])
+
+  const [products, setProducts] = useState([])
+
+  const { catName } = useParams()
+
+  useEffect(() => {
+    db.collection('categories').onSnapshot((snapshot) => {
+      setCategories(snapshot.docs.map(doc => (
+        { id: doc.id, data: doc.data() }
+      )))
+    })
+  }, [])
+
+  useEffect(() => {
+    if (catName) {
+      db.collection('products').where('category', '==', catName?.toLowerCase()).onSnapshot((snapshot) => {
+        setProducts(snapshot.docs.map(doc => (
+          { id: doc.id, data: doc.data() }
+        )))
+      })
+    } else {
+      db.collection('products').onSnapshot((snapshot) => {
+        setProducts(snapshot.docs.map(doc => (
+          { id: doc.id, data: doc.data() }
+        )))
+      })
+    }
+  }, [catName])
+
   return (
     <>
       <img
@@ -13,50 +47,19 @@ export const Home = () => {
         <main className='home__container'>
 
           <div className='home__row'>
-            <ProductCard
-              id='1'
-              title='Photo of Canadian satellite'
-              image='https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1504&q=80'
-              price={666.69}
-              rating={5}
-            />
-            <ProductCard
-              id='2'
-              title='Photo of American Astronaut'
-              image='https://images.unsplash.com/photo-1447433865958-f402f562b843?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1504&q=80'
-              price={666.69}
-              rating={5}
-            />
+            {categories?.map(e => <CategoryCard
+              category={e.data.name}
+              image={e.data.image} />)}
+          </div>
 
-            <ProductCard
-              id='3'
-              title='Photo of Space'
-              image='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1427&q=80'
-              price={666.69}
-              rating={5}
-            />
-            <ProductCard
-              id='4'
-              title='Photo of Night Sky'
-              image='https://images.unsplash.com/photo-1515651571008-95427bed8e0b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1546&q=80'
-              price={666.69}
-              rating={5}
-            />
-            <ProductCard
-              id='5'
-              title='Photo of Red Galaxy'
-              image='https://images.unsplash.com/photo-1523968063095-61264537fc21?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1407&q=80'
-              price={666.69}
-              rating={5}
-            />
-            <ProductCard
-              id='6'
-              title='Photo of Milky Way'
-              image='https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'
-              price={666.69}
-              rating={5}
-            />
-
+          <div className='home__row'>
+            {products?.map(e => <ProductCard
+              id={e.id}
+              title={e.data.title}
+              image={e.data.image}
+              price={e.data.price}
+              rating={e.data.rating}
+            />)}
           </div>
         </main>
       </div>
