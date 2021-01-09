@@ -19,6 +19,12 @@
   );
 }
 
+@media (max-width: 600px) {
+  .home__image {
+    margin-bottom: -50px;
+  }
+}
+
 .home__row {
   display: flex;
   z-index: 1;

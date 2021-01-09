@@ -37,6 +37,7 @@ export const Home = () => {
       />
       <div className='home'>
         <main className='home__container'>
+
           <Categories />
           <div className='home__row'>
             {products?.map(e => <ProductCard

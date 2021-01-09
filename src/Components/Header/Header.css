@@ -14,6 +14,11 @@
   align-items: center;
   width: 100%;
 }
+@media (max-width: 600px) {
+  .header__level__one {
+    justify-content: space-between;
+  }
+}
 
 .header__logo {
   color: #fff;
@@ -29,6 +34,12 @@
   align-items: center;
   justify-content: flex-end;
   border-radius: 24;
+}
+
+@media (max-width: 600px) {
+  .header__search {
+    display: none;
+  }
 }
 
 .header__searchInput {
@@ -80,6 +91,12 @@
   width: 100%;
   color: #bebebe;
   padding: 0 10px;
+}
+
+@media (max-width: 600px) {
+  .header__level__two {
+    display: none;
+  }
 }
 
 .header__navBtn {
