@@ -11,6 +11,14 @@ export const Order = ({ order }) => {
       <p className='order__id'>
         {order.id}
       </p>
+      <div className='order__address'>
+        <h3>Address:</h3>
+        <span>
+          <p>{order.data.address.first_name} {order.data.address.last_name}</p>
+          <p>{order.data.address.street}</p>
+          <p>{order.data.address.zip} {order.data.address.city}</p>
+        </span>
+      </div>
       {order.data.basket?.map(item => (
         <BasketItem
           id={item.id}

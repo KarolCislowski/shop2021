@@ -13,6 +13,16 @@
   right: 20px;
 }
 
+.order__address {
+  display: flex;
+  border-bottom: 2px solid #eaeded;
+  padding: 20px 0;
+}
+
+.order__address > h3 {
+  margin-right: 20px;
+}
+
 .order__total {
   font-weight: 500;
   text-align: right;

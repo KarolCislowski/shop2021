@@ -11,6 +11,7 @@ import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from '../../axios'
 import { db } from '../../firebase'
+import { Address } from './Address/Address'
 
 export const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue()
@@ -24,6 +25,7 @@ export const Payment = () => {
   const [disabled, setDisabled] = useState(true)
   const [succeeded, setSucceeded] = useState(false)
   const [processing, setProcessing] = useState('')
+  const [address, setAddress] = useState({})
 
   const [clientSecret, setClientSecret] = useState(true)
 
@@ -40,6 +42,28 @@ export const Payment = () => {
 
     getClientSecret()
   }, [basket])
+
+  useEffect(() => {
+    if (user) {
+      db.collection('users')
+        .doc(user?.uid)
+        .get()
+        .then(doc => {
+          if (doc.exists) {
+            setAddress({
+              first_name: doc.data().first_name,
+              last_name: doc.data().last_name,
+              street: doc.data().street,
+              zip: doc.data().zip,
+              city: doc.data().city
+            })
+          }
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    }
+  }, [user])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -59,7 +83,8 @@ export const Payment = () => {
           .set({
             basket: basket,
             amount: paymentIntent.amount,
-            created: paymentIntent.created
+            created: paymentIntent.created,
+            address: address
           })
 
         setSucceeded(true)
@@ -96,11 +121,8 @@ export const Payment = () => {
           <div className='payment__title'>
             <h3>Delivery Address</h3>
           </div>
-          <div className='payment__address'>
-            <p>{user?.email}</p>
-            <p>Reactgatan 123</p>
-            <p>Stockholm</p>
-          </div>
+          <Address
+            address={address} />
         </div>
 
         <div className='payment__section'>
