@@ -41,6 +41,7 @@ export const Home = () => {
           <Categories />
           <div className='home__row'>
             {products?.map(e => <ProductCard
+              key={e.id}
               id={e.id}
               title={e.data.title}
               image={e.data.image}

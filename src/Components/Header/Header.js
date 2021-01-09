@@ -75,8 +75,10 @@ export const Header = () => {
         </div>
         </Link>
         {categories?.map(e => (
-          <Link to={`/products/${e.data.name}`} >
-            <div className={catName?.toLowerCase() === e.data.name ? 'header__navBtn header__navBtn--active' : 'header__navBtn'}>
+          <Link key={e.id} to={`/products/${e.data.name}`} >
+            <div
+              className={catName?.toLowerCase() === e.data.name ? 'header__navBtn header__navBtn--active' : 'header__navBtn'}
+            >
               {e.data.name}
             </div>
           </Link>

@@ -18,6 +18,7 @@ export const Categories = () => {
   return (
     <div className='categories'>
       {categories?.map(e => <CategoryCard
+        key={e.id}
         category={e.data.name}
         image={e.data.image} />)}
     </div>
