@@ -23,6 +23,7 @@ import { Login } from './Pages/Login/Login'
 import { useStateValue } from './State/StateProvider'
 import { Payment } from './Pages/Payment/Payment'
 import { Orders } from './Pages/Orders/Orders'
+import { Footer } from './Components/Footer/Footer'
 
 const promise = loadStripe('pk_test_51I5vbRJeBHPKbMlwLnIPJvXh2vhxLW0hAuwxuYyJuaXc56dSBqMcTjOOgAZMuqHc0bRAbwlbSHygLVNimxWHfvhY00JpV0MiuE')
 
@@ -70,10 +71,12 @@ function App() {
           <Route path='/products/:catName'>
             <Header />
             <Home />
+            <Footer />
           </Route>
           <Route path='/'>
             <Header />
             <Home />
+            <Footer />
           </Route>
         </Switch>
       </div>

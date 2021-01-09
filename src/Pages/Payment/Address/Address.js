@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { db } from '../../../firebase'
 import { useStateValue } from '../../../State/StateProvider'
 import './Address.css'
 
-export const Address = ({ address }) => {
+export const Address = () => {
   const [{ user }, dispatch] = useStateValue()
 
   const [first_name, setFirst_name] = useState('')
@@ -11,14 +11,37 @@ export const Address = ({ address }) => {
   const [street, setStreet] = useState('')
   const [zip, setZip] = useState()
   const [city, setCity] = useState('')
+  const [address, setAddress] = useState({})
 
   const [editMode, setEditMode] = useState(false)
+
+  useEffect(() => {
+    if (user) {
+      db.collection('users')
+        .doc(user?.uid)
+        .get()
+        .then(doc => {
+          if (doc.exists) {
+            setAddress({
+              first_name: doc.data().first_name,
+              last_name: doc.data().last_name,
+              street: doc.data().street,
+              zip: doc.data().zip,
+              city: doc.data().city
+            })
+          }
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    }
+  }, [editMode, user])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     db.collection('users')
       .doc(user?.uid)
-      .update({
+      .set({
         first_name,
         last_name,
         street,
@@ -34,7 +57,12 @@ export const Address = ({ address }) => {
           <p>{address.first_name} {address.last_name}</p>
           <p>{address.street}</p>
           <p>{address.zip} {address.city}</p>
-          <p onClick={() => setEditMode(!editMode)}>edit address</p>
+          <button
+            className='address__edit'
+            onClick={() => setEditMode(!editMode)}
+          >
+            Edit address
+          </button>
         </div>
         :
         <form
