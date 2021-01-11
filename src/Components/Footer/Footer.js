@@ -10,7 +10,7 @@ export const Footer = () => (
 
       <div className='footer__center'>
         <h3 className='footer__sectionHeading'>ABOUT ME:</h3>
-        <p>I'm Karol Cislowski and I'm fullstack developer with focus on front end using React js library. </p>
+        <p>I'm Karol Cislowski and I'm frontend developer based in Stockholm. </p>
       </div>
 
       <div className='footer__right'>

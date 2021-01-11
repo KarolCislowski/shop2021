@@ -33,13 +33,13 @@ export const Header = () => {
         <Link to='/' style={{ textDecoration: 'none' }}>
           <h5 className='header__logo'>Trip Store</h5>
         </Link>
-        <div className='header__search'>
+        {/* <div hidden className='header__search'>
           <input
             className='header__searchInput'
             type='text'
           />
-          <Search className='header__searchIcon' />
-        </div>
+          <Search hidden className='header__searchIcon' />
+        </div> */}
         <nav className='header__nav'>
           <Link to={!user && '/login'} style={{ textDecoration: 'none' }} >
             <div
